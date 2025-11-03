@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Bài tập thể dục</string>
+    <string name="loginTxt">Bạn đã có tài khoản? <font color="#FD511E">Đăng nhập</font></string>
+</resources>
