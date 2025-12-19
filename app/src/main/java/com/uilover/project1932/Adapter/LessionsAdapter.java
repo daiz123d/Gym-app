@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.uilover.project1932.Data.LocalDataManager;
 import com.uilover.project1932.Domain.Lession;
+import com.uilover.project1932.Domain.Workout;
 import com.uilover.project1932.databinding.ViewholderExerciseBinding;
 import com.uilover.project1932.databinding.ViewholderWorktoutBinding;
 
@@ -22,15 +24,23 @@ public class LessionsAdapter extends RecyclerView.Adapter<LessionsAdapter.Viewho
 
     private final ArrayList<Lession> list;
     private Context context;
+    private Workout workout; // Thêm workout để lưu lịch sử
+    private LocalDataManager dataManager;
 
     public LessionsAdapter(ArrayList<Lession> list) {
         this.list = list;
+    }
+    
+    public LessionsAdapter(ArrayList<Lession> list, Workout workout) {
+        this.list = list;
+        this.workout = workout;
     }
 
     @NonNull
     @Override
     public LessionsAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
+        dataManager = LocalDataManager.getInstance(context);
         ViewholderExerciseBinding binding = ViewholderExerciseBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new Viewholder(binding);
     }
@@ -48,6 +58,12 @@ public class LessionsAdapter extends RecyclerView.Adapter<LessionsAdapter.Viewho
         holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Lưu lịch sử khi người dùng xem bài học
+                if (workout != null && dataManager != null) {
+                    dataManager.addWorkoutHistory(workout.getKcal());
+                }
+                
+                // Mở YouTube
                 Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + list.get(position).getLink()));
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + list.get(position).getLink()));
 

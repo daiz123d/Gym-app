@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
     <application
+        android:name=".WorkoutApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,7 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project1932"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".Activity.ChatActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".Activity.WorkoutActivity"
             android:exported="false" />
@@ -27,6 +39,76 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.HandbookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.NutritionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.NutritionDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ExercisesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ExercisesDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.PharmacologyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.PharmacologyDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.IngredientsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.IngredientsDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.EncyclopediaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.EncyclopediaDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.TrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ExerciseDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ExerciseTimerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.WorkoutSessionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ProgressTrackingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MealPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.TrainingScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.BMIScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DayDetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

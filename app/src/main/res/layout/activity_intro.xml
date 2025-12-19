@@ -22,7 +22,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ĐẨY BẠN ĐẾN GIỚI HẠN\nCỦA CHÍNH MÌNH"
+        android:text="FITHUB\nTẬP LUYỆN MỌI LÚC MỌI NƠI"
         android:textColor="@color/white"
         android:textAlignment="center"
         android:textSize="40sp"

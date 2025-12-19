@@ -1,5 +1,13 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
+}
+
+// Read the API key from local.properties
+Properties properties = new Properties()
+if (rootProject.file('local.properties').exists()) {
+    properties.load(new FileInputStream(rootProject.file('local.properties')))
 }
 
 android {
@@ -13,7 +21,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-
+        // Make the API key available in BuildConfig
+        buildConfigField "String", "OPENAI_API_KEY", properties.getProperty('openai.api.key', 'YOUR_DEFAULT_API_KEY')
     }
 
     buildTypes {
@@ -28,6 +37,7 @@ android {
     }
     buildFeatures{
         viewBinding true
+        buildConfig true
     }
 }
 
@@ -38,4 +48,20 @@ dependencies {
     implementation libs.activity
     implementation libs.constraintlayout
     implementation 'com.github.bumptech.glide:glide:4.12.0'
+    
+    // Gson for JSON conversion
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // Retrofit for REST API
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
+    
+    // MPAndroidChart for charts
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    
+    // OpenAI
+    implementation "com.aallam.openai:openai-client:3.8.0"
+    implementation "io.ktor:ktor-client-okhttp:2.3.9"
 }
