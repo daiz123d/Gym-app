@@ -225,6 +225,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="32dp" />
+
+            <!-- BMI Schedule Button -->
+            <Button
+                android:id="@+id/scheduleBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lịch tập theo BMI"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/orange"
+                android:layout_marginBottom="16dp" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
